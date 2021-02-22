@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <conio.h>
-#include <math.h>
 
 main(){
 	printf("Programa para calcular el voltaje con la ley de Ohms\n\n");
@@ -11,4 +10,5 @@ main(){
 	scanf("%d", &R);
 	V = I * R ;
 	printf("\n El valor del voltaje es de %d volts", V);
+	getch();
 }
