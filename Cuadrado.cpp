@@ -6,9 +6,9 @@ main(){
 	printf("Programa para saber cuantas veces cabe un cuadrado dentro de un rectangulo segun sus medidas\n\n");
 	printf("Ingrese el valor del lado del cuadrado: ");
 	scanf("%d", &Lad);
-	printf("\nIngrese el valor de la altura del rectangulo: ");
+	printf("Ingrese el valor de la altura del rectangulo: ");
 	scanf("%d", &Higth);
-	printf("\nIngrese el valor del ancho del rectangulo: ");
+	printf("Ingrese el valor del ancho del rectangulo: ");
 	scanf("%d", &Width);
 	Num1 = Higth / Lad;
 	Num2 = Width / Lad;
