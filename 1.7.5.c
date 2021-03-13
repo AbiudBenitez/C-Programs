@@ -3,7 +3,7 @@
 #include <time.h>
 
 main(){
-	printf("Reloj");
+	printf("Reloj\n");
 	int Ho, h, Mi, m, Se, s;
 	printf("Inserte las horas: ");
 	scanf("%d", h);
