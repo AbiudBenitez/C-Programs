@@ -15,7 +15,7 @@ main()
 	scanf("%d", &m);
 	printf("Inserte los segundos: ");
 	scanf("%d", &s);
-	while(Se < s + 1 and Mi < m + 1 and Ho < h + 1)
+	while(Se < s + 1 && Mi < m + 1 && Ho < h + 1)
 	{
 		if(Se == 60)
 		{
