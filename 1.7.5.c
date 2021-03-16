@@ -15,22 +15,19 @@ main()
 	scanf("%d", &m);
 	printf("Inserte los segundos: ");
 	scanf("%d", &s);
-	if((Se != s) && (Mi != m) && (Ho != h))
+	while((Se < s + 1) && (Mi < m + 1) && (Ho < h + 1))
 	{
-		for(;Se < s + 1; Se++)
+		if(Se == 60)
 		{
-			if(Se == 60)
-			{
-				Mi = Mi + 1;
-				Se = 0;
-			}
+			Mi = Mi + 1;
+			Se = 0;
 			if(Mi == 60)
 			{
 				Ho = Ho + 1;
-				Mi = 0;
 			}
-			printf("%d:%d:%d\n", Ho, Mi, Se);
 		}
+		printf("%d:%d:%d\n", Ho, Mi, Se);
+		Se++;
 	}
 	getch();
 }
