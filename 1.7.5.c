@@ -13,10 +13,21 @@ int main()
 	scanf("%d", &h);
 	printf("Inserte los minutos: ");
 	scanf("%d", &m);
+	if(m == 60)
+	{
+		h = h + 1;
+		m = 0;
+	}
 	printf("Inserte los segundos: ");
 	scanf("%d", &s);
+	if(s == 60)
+	{
+		m = m + 1; 
+		s = 0;
+	}
 	for(; Se < 60; Se++)
 	{	
+		sleep(1);
 		printf("%d:%d:%d\n", Ho, Mi, Se);
 		if(Se == 59)
 		{
@@ -32,6 +43,7 @@ int main()
 		}
 		if(Se == s && Mi == m && Ho == h)
 		{
+			getch();
 			return 0;
 		}
 	}
