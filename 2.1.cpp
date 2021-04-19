@@ -14,6 +14,7 @@ main()
 		printf("Ingresa un numero: ");
 		scanf("%d", &O[i]);
 	}
+	system("PAUSE");
 	system("CLS");
 	for(i=0;i<N;i++)
 	{

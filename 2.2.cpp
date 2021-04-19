@@ -4,11 +4,11 @@
 main()
 {
 	printf("Programa que captura un arreglo de n elementos para posteriormente imprimirlo e imprimir el promedio de los valores que tiene\n\n");
-	int N, i, Sum, Prom;
+	int N, i, Sum;
+	Sum = 0;
 	printf("Elija una cantidad de numeros: ");
 	scanf("%d", &N);
 	int Num[N];
-	Sum = 0;
 	for(i=0;i<N;i++)
 	{
 		printf("Ingrese un valor: ");
