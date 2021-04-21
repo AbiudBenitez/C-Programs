@@ -9,7 +9,7 @@ main()
 	printf("Programa que genere un numero aleatrio del 1 al 6 simulando un dado\n\n");
 	printf("Presiona una tecla para lanzar el dado\n\n"); getch(); 
 	srand(time(NULL));
-	random = (rand() % 6)+1;
+	random = 1 + rand()%6;
 	printf("%d", random);
 	getch();
 }

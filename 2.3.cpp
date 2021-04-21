@@ -23,7 +23,7 @@ main()
 	srand(time(NULL));
 	for(i=0;i<o;i++)
 	{
-		x[i] = rand()%(n-m+1)+m;
+		x[i] = m + rand()%(n-m+1);
 		if(i==o-1)
 		{
 			printf("%d", x[i]);
