@@ -5,7 +5,7 @@
 
 main()
 {
-	int a[10], i, po[3], no[3], A, e;
+	int a[10], i, po[3], no[3], A, e, j;
 	A = 0;
 	e = 0;
 	srand(time(NULL));
@@ -18,6 +18,16 @@ main()
 	{
 		printf("\nElija la posicion del numero a adivinar: ");
 		scanf("%d", &po[i]);
+		for(j=0;po[i]>10;j++)
+		{
+			printf("Solo puede elegir valores entre 1 y 10: ");
+			scanf("%d", &po[i]);
+		}
+		for(j=0;po[i]<1;j++)
+		{
+			printf("Solo puede elegir valores entre 1 y 10: ");
+			scanf("%d", &po[i]);
+		}
 		if(po[i] == po[i-1] || po[i] == po[i-2])
 		{
 			if(a[i-1] == no[i-1] || a[i-1] == no[i-2])
@@ -28,6 +38,16 @@ main()
 		}
 		printf("Elija el numero que usted cree que este en la posicion %d: ", po[i]);
 		scanf("%d", &no[i]);
+		for(j=0;no[i]>10;j++)
+		{
+			printf("Solo puede elegir valores entre 1 y 10: ");
+			scanf("%d", &no[i]);
+		}
+		for(j=0;no[i]<1;j++)
+		{
+			printf("Solo puede elegir valores entre 1 y 10: ");
+			scanf("%d", &no[i]);
+		}
 	}
 	for(i=0;i<3;i++)
 	{
@@ -52,5 +72,6 @@ main()
 		{
 			printf("%d, ", a[i]);
 		}
-	}	
+	}
+	getch();	
 }
