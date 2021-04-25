@@ -6,7 +6,7 @@
 main()
 {
 	printf("Programa que permite al usuario generar la cantidad de numeros aleatorios que desee, indicando el rango del cual se generan para imprimirlos al final, en forma horizontal separado por comas.\n\n");
-	int n, m, i, o, pa = 0, im = 0, primos = 0, co = 0, j;
+	int n, m, i, o, pa = 0, im = 0, pr = 0, co = 0, j;
 	printf("Introduce la cantidad de numeros aleatorios que deseas: ");
 	scanf("%d", &o);
 	int x[o];
@@ -40,19 +40,23 @@ main()
 		{
 			im = im + 1;
 		}
-		j = x[i];
-		do
+		for(j=x[i];j>0;j--)
 		{
 			if(x[i]%j==0)
 			{
-				primos = primos + 1;
+				co = co + 1;
 			}
-			j = j - 1;
 		}
-		while(j>1);
+		if(co == 2)
+		{
+			pr = pr + 1;
+			co = 0;
+		}
+		else
+		{
+			co = 0;
+		}
 	}
-	
-	printf("\nHay %d numeros pares, %d numeros impares y %d numeros primos", pa, im, primos);
-	printf("%d", primos);
+	printf("\n\nHay %d numeros pares, %d numeros impares y %d numeros primos", pa, im, pr);
 	getch();
 }
