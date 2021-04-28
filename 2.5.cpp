@@ -12,7 +12,6 @@ main()
 	for(i=0;i<10;i++)
 	{
 		a[i] = 1 + rand()%10;
-		printf("%d", a[i]);
 	}
 	for(i=0;i<3;i++)
 	{
