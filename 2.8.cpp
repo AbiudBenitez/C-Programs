@@ -73,43 +73,43 @@ main()
 		Med = (N + 1) / 2;
 		Medi = (Num[Med-1] + Num[Med]) / 2.0;
 		printf("\n\nLa mediana es de: %.2f", Medi);
+		for(i=Med-1;i>0;i--)
+		{
+			if(Num[i]%2==0)
+			{
+				par = par + 1;
+			}
+		}
+		printf("\n\nLos numeros pares debajo de la mediana son %d", par);
+		for(i=Med;i<N;i++)
+		{
+			if(Num[i]%2!=0)
+			{
+				im = im + 1;
+			}
+		}
+		printf("\nLos numeros impares debajo de la mediana son %d", im);
 	}
 	else
 	{
 		Med = (N + 1) / 2;
 		printf("\n\nLa mediana es de: %d", Num[Med-1]);
-	}
-	if(N%2==0)
-	{
-		for(i=0;i<N;i++)
-		{			
-			int temp = Medi / 1;
-			pru = Num[i] % temp;
-			if(pru == 0)
-			{
-				par = par + 1; 
-			}
-			else
-			{
-				im = im + 1;
-			}			
-		}
-		printf("\n\nHay %d numeros pares y %d numeros impares con respecto a la mediana", par, im);
-	}
-	else
-	{
-		for(i=0;i<N;i++)
+		for(i=Med-1;i>0;i--)
 		{
-			if(Num[i]%Num[Med-1]==0)
+			if(Num[i]%2==0)
 			{
 				par = par + 1;
 			}
-			else
+		}
+		printf("\n\nLos numeros pares debajo de la mediana son %d", par);
+		for(i=Med-1;i<N;i++)
+		{
+			if(Num[i]%2!=0)
 			{
 				im = im + 1;
 			}
 		}
-		printf("\n\nHay %d numeros pares y %d numeros impares con respecto a la mediana", par, im);
+		printf("\nLos numeros impares debajo de la mediana son %d", im);
 	}
 	getch();
 }
