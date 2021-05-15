@@ -46,7 +46,6 @@ int main()
 		default:
 			printf("\nNo se ha seleccionado un numero valido");
 	}
-	
     return 0;
 }
 
