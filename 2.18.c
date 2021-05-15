@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 void table(int [][5], int);
-int porce(int [][5], int);
-int ApRe(int [][5]);
-int prom(int [][5]);
+void porce(int [][5], int);
+void ApRe(int [][5], int);
+void prom(int [][5], int);
 
 int main()
 {
@@ -35,10 +35,10 @@ int main()
 			porce(A, Alu);
 		break;
 		case 3:
-			ApRe;
+			ApRe(A, Alu);
 		break;
 		case 4:
-			prom;
+			prom(A, Alu);
 		break;
 		case 5:
 			printf("\n\nGracias por venir");
@@ -61,7 +61,7 @@ void table(int A[][5], int Alu)
     return;
 }
 
-int porce(int A[][5],int Alu)
+void porce(int A[][5],int Alu)
 {
 	int can, i;
 	float por;
@@ -75,5 +75,36 @@ int porce(int A[][5],int Alu)
 	}
 	por = can / (Alu * 1.0);
 	printf("El porcentaje de alumnos reporbados es de %.2f \n", por * 100);
-    return 0;
+    return;
+}
+
+void ApRe(int A[][5], int Alu)
+{
+	int i;
+	for(i=0;i<Alu;i++)
+	{
+		if(A[i][4] < 70)
+		{
+			printf("\nEl alumno %d reprobo.", A[i][0]);
+		}
+		else
+		{
+			printf("\nEl alumno %d aprobo.", A[i][0]);
+		}
+	}
+	return;
+}
+
+void prom(int A[][5], int Alu)
+{
+	int Sum, i;
+	float PG;
+	Sum = 0;
+	for(i=0;i<Alu;i++)
+	{
+		Sum = Sum + A[i][4];
+	}
+	PG = Sum / Alu;
+	printf("El promedio grupal es de %.2f.", PG);
+	return;
 }
