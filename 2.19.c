@@ -3,15 +3,20 @@
 #include<conio.h>
 #include<time.h>
 
+					/*Programa no finalizado*/
+
 int colu;
 
-void search(int);
+void search(int,int*,int*);
 
 int main()
 {
-	int rows, colu, i, j, max, min, Op, r, s;
+	int rows, colu, i, j, max, min, Op, r, s, c, o;
+	c = o = 0;
+	int* n1;
+	int* n2;
 	int **A;
-	int *B;
+	int **B;
 	printf("Ingresa el numero de filas que deseas: ");
 	scanf("%d", &rows);
 	printf("Ingresa el numero de columnas que deseas: ");
@@ -59,21 +64,33 @@ int main()
 					{
 						printf("%d ", A[i][j]);
 						r++;
-						if(r==1)
-						{
-							B = (int*)malloc(r*sizeof(int));
-							B[r-1] = A[i][j];
-						}
-						else
-						{
-							B = (int*)realloc(B, r*sizeof(int));
-							B[r-1] = A[i][j];
-						}
 					}
 				}
 			}
 			printf("\n\n%d\n", r);
-			search(r);
+			search(r,&n1,&n2);
+			printf("\n\n\t%d %d", n1,n2);
+			B = (int**)malloc(*n1*sizeof(int*));
+			for(i=0;i<n1;i++)
+			{
+				B[i] = (int*)malloc(*n2*sizeof(int));
+			}
+			for(i=0;i<rows;i++)
+			{
+				for(j=0;j<colu;j++)
+				{
+					if(A[i][j] % 2 != 0)
+					{
+						B[c][o] = A[i][j];
+						o++;
+						if(o == n2)
+						{
+							c++;
+							o = 0;
+						}
+					}
+				}
+			}
 		break;
 		default:
 			printf("\nNo se ha seleccionado un valor valido");
@@ -82,32 +99,35 @@ int main()
 	return 0;
 }
 
-void search(int r)
+void search(int r, int* n1, int* n2)
 {
-	int n1, n2, i, j;
+	int x, y;
+	x = *n1;
+	y = *n2;
+	int i, j;
 	if(r%2==0)
 	{
 		for(i=0;i<r;i++)
 		{
 			for(j=0;j<r;j++)
 			{
-				if(j*i==r)
+				if(j * i == r)
 				{
 					printf("\n%d %d", i, j);
-					n1 = i;
-					n2 = j;
+					x = i;
+					y = j;
 				}
 			}
 		}
 		i = 2;
 		while(i<10)
 		{
-			if(n1%i==0)
+			if(x%i==0)
 			{
-				n1 = n1 / i;
-				n2 = n2 * i;
+				x = x / i;
+				y = y * i;
 			}	
-			if(n1%i!=0)
+			if(x%i!=0)
 			{
 				i++;
 			}
@@ -120,27 +140,29 @@ void search(int r)
 		{
 			for(j=0;j<r;j++)
 			{
-				if(j*i==r)
+				if(j * i == r)
 				{
 					printf("\n%d %d", i, j);
-					n1 = i;
-					n2 = j;
+					x = i;
+					y = j;
 				}
 			}
 		}
 		i = 2;
 		while(i<10)
 		{
-			if(n1%i==0)
+			if(x%i==0)
 			{
-				n1 = n1 / i;
-				n2 = n2 * i;
+				x = x / i;
+				y = y * i;
 			}	
-			if(n1%i!=0)
+			if(x%i!=0)
 			{
 				i++;
 			}
 		}
 	}
-	printf("\n\n\t%d %d", n1,n2);
+	*n1 = x;
+	*n2 = y;
+	return;
 }
