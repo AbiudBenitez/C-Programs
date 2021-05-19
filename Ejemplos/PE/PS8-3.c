@@ -16,6 +16,7 @@ typedef struct
 void read(profesor*,int,float[]);
 void inA(profesor*,int,float[]);
 void mon(profesor*,int,float[]);
+void egr(profesor*,int,float[]);
 
 int main()
 {
@@ -31,6 +32,7 @@ int main()
 	read(EMPLE,Num,Sum);
 	inA(EMPLE,Num,Sum);
 	mon(EMPLE,Num,Sum);
+	egr(EMPLE,Num,Sum);
 	return 0;
 }
 
@@ -72,15 +74,17 @@ void read(profesor A[], int Num, float Sum[])
 		printf("\nIngrese la nacionalidad del profesor: ");
 		scanf("%s", A[i].naci);
 		float tot = 0.0;
+		printf("\n");
 		for(j=0;j<12;j++)
 		{
-			printf("\nIngrese el salario del profesor del mes %d: ", j+1);
+			printf("Ingrese el salario del profesor del mes %d: ", j+1);
 			scanf("%f", &A[i].sala[j]);
 			fflush(stdin);
 			tot = tot + A[i].sala[j];
 		}
 		Sum[i] = tot;
 	}
+	return;
 }
 
 void inA(profesor A[], int Num, float Sum[])
@@ -100,11 +104,12 @@ void inA(profesor A[], int Num, float Sum[])
 			temppo = i;
 		}
 	}
-	printf("El maestro que mas gano es: \n");
+	printf("\nEl maestro que mas gano es: \n");
 	printf("\n\tNombre: %s", A[temppo].name);
 	printf("\n\tDepartamento: %s", A[temppo].depa);
 	printf("\n\tNacionalidad: %s", A[temppo].naci);
 	printf("\n\tIngreso total: %.2f", Max);
+	return;
 }
 
 void mon(profesor A[], int Num, float Sum[])
@@ -122,6 +127,45 @@ void mon(profesor A[], int Num, float Sum[])
 		}
 	}
 	por = (tot * 100) / sub;
-	printf("\nEl total pagado a los profesores extranjeros es de %.2f.", tot);
-	printf("\nEquivale al %.2f porciento del monto total erogado.", por);
+	printf("\n\nEl total pagado a los profesores extranjeros es de %.2f pesos.", tot);
+	printf("\nEquivale al %.0f porciento del monto total erogado.", por);
+	return;
+}
+
+void egr(profesor A[], int Num, float Sum[])
+{
+	int i, con[4], temppo;
+	con[4] = 0;
+	for(i=0;i<Num;i++)
+	{
+		if(A[i].depa == "Economia")
+		{
+			con[0] = con[0] + 1;
+		}
+		else if(A[i].depa == "Derecho")
+		{
+			con[1] = con[1] + 1;
+		}
+		else if(A[i].depa == "Computacion")
+		{
+			con[2] = con[2] + 1;
+		}
+		else if(A[i].depa == "Administracion")
+		{
+			con[3] = con[3] + 1;
+		}
+	}
+	for(i=0;i<Num-1;i++)
+	{
+		if(con[i]<con[i+1])
+		{
+			temppo = i+1;
+		}
+		else
+		{
+			temppo = i;
+		}
+	}
+	printf("\nEl departamento que mas egresos tuvo es el de %s", A[temppo].depa);
+	return;
 }
