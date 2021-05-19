@@ -162,5 +162,4 @@ void egr(profesor A[], int Num, float Sum[])
 	}
 	printf("\nEl departamento que mas egresos tuvo es el de %s\n", A[temppo].depa);
 	return;
-	
 }
