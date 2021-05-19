@@ -134,25 +134,19 @@ void mon(profesor A[], int Num, float Sum[])
 
 void egr(profesor A[], int Num, float Sum[])
 {
-	int i, con[4], temppo;
-	con[4] = 0;
+	char * tipo_depa[4] = {"Economia", "Derecho", "Computacion", "Administracion"};
+	int i, j;
+	int con[4], temppo;
+	// Iniciar todos los elementos del array
+	con[0] = con[1] = con[2] = con[3] = 0;
 	for(i=0;i<Num;i++)
 	{
-		if(A[i].depa == "Economia")
+		for (j = 0; j < 4; j++) 
 		{
-			con[0] = con[0] + 1;
-		}
-		else if(A[i].depa == "Derecho")
-		{
-			con[1] = con[1] + 1;
-		}
-		else if(A[i].depa == "Computacion")
-		{
-			con[2] = con[2] + 1;
-		}
-		else if(A[i].depa == "Administracion")
-		{
-			con[3] = con[3] + 1;
+			if (A[i].depa == tipo_depa[j]) 
+			{
+				con[j] = con[j] + 1;
+			}
 		}
 	}
 	for(i=0;i<Num-1;i++)
@@ -166,6 +160,6 @@ void egr(profesor A[], int Num, float Sum[])
 			temppo = i;
 		}
 	}
-	printf("\nEl departamento que mas egresos tuvo es el de %s", A[temppo].depa);
+	printf("\nEl departamento que mas egresos tuvo es el de %s\n", A[temppo].depa);
 	return;
 }
