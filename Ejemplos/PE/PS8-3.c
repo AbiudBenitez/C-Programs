@@ -15,6 +15,7 @@ typedef struct
 
 void read(profesor*,int,float[]);
 void inA(profesor*,int,float[]);
+void mon(profesor*,int,float[]);
 
 int main()
 {
@@ -29,6 +30,7 @@ int main()
 	float Sum[Num];
 	read(EMPLE,Num,Sum);
 	inA(EMPLE,Num,Sum);
+	mon(EMPLE,Num,Sum);
 	return 0;
 }
 
@@ -92,10 +94,34 @@ void inA(profesor A[], int Num, float Sum[])
 			Max = Sum[i+1];
 			temppo = i+1;
 		}
+		else
+		{
+			Max = Sum[i];
+			temppo = i;
+		}
 	}
 	printf("El maestro que mas gano es: \n");
 	printf("\n\tNombre: %s", A[temppo].name);
 	printf("\n\tDepartamento: %s", A[temppo].depa);
 	printf("\n\tNacionalidad: %s", A[temppo].naci);
 	printf("\n\tIngreso total: %.2f", Max);
+}
+
+void mon(profesor A[], int Num, float Sum[])
+{
+	int i;
+	float tot, sub, por;
+	char na[30] = "Colombiana";
+	tot = sub = 0;
+	for(i=0;i<Num;i++)
+	{
+		sub = sub + Sum[i];
+		if(strcmp(A[i].naci, na) != 0)
+		{
+			tot = tot + Sum[i];
+		}
+	}
+	por = (tot * 100) / sub;
+	printf("\nEl total pagado a los profesores extranjeros es de %.2f.", tot);
+	printf("\nEquivale al %.2f porciento del monto total erogado.", por);
 }
