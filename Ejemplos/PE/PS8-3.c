@@ -29,8 +29,6 @@ int main()
 	float Sum[Num];
 	read(EMPLE,Num,Sum);
 	inA(EMPLE,Num,Sum);
-	printf("%f", Sum[0]);
-	printf("%f", Sum[1]);
 	return 0;
 }
 
@@ -81,7 +79,6 @@ void read(profesor A[], int Num, float Sum[])
 		}
 		Sum[i] = tot;
 	}
-	return;
 }
 
 void inA(profesor A[], int Num, float Sum[])
@@ -90,16 +87,15 @@ void inA(profesor A[], int Num, float Sum[])
 	float Max;
 	for(i=0;i<Num-1;i++)
 	{
-		if(Sum[i]>Sum[i+1])
+		if(Sum[i]<Sum[i+1])
 		{
-			Max = Sum[i];
-			temppo = i;
+			Max = Sum[i+1];
+			temppo = i+1;
 		}
 	}
 	printf("El maestro que mas gano es: \n");
 	printf("\n\tNombre: %s", A[temppo].name);
 	printf("\n\tDepartamento: %s", A[temppo].depa);
 	printf("\n\tNacionalidad: %s", A[temppo].naci);
-	printf("\n\tIngreso total: %f", Sum[temppo]);
-	return;
+	printf("\n\tIngreso total: %.2f", Max);
 }
