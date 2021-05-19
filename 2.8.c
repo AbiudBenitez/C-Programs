@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #include <time.h>
 #include <stdlib.h>
 
@@ -111,5 +110,4 @@ main()
 		}
 		printf("\n\nHay %d numeros pares y %d numeros impares con respecto a la mediana", par, im);
 	}
-	getch();
 }
