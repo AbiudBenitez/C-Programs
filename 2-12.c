@@ -1,22 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 int age;
-int i, j;
 
-void read(int [][j]);
-void saleage (int [][j], int[]);
+void read(int [][4]);
+int saleage(int []);
 
 int main()
 {
+    int totalSum;
+    int i = 0;
     printf("Seleccione la catidad de años que desee capturar: ");
     scanf("%d", &age);
-    int sale[age][4], sum[age];
+    int sale[age][4];
     read(sale);
-    saleage(sale,sum);
+    for (i = 0; i < age; i++) {
+        totalSum = saleage(sale[i]);
+        printf("The total sum of the sales is: %d\n\n", totalSum);
+    }
 }
 
-void read(int sale[][j])
+void read(int sale[][4])
 {
+    int i, j;
     for(i=0;i<age;i++)
     {
         for(j=0;j<4;j++)
@@ -28,15 +33,15 @@ void read(int sale[][j])
     }
 }
 
-void saleage(int sale[][j], int sum[])
+int saleage(int sale[])
 {
-    for(i=0;i<age;i++)
+    int i, j;
+    int sum = 0;
+    for(j=0;j<4;j++)
     {
-        for(j=0;j<4;j++)
-        {
-            sum[i] = sum[i] + sale[i][j];
-            printf("La venta del año fue: %d", sum[i]);
-        }
-        printf("\n");
+        sum = sum + sale[j];
+        printf("La venta del año fue: %d\n", sum);
     }
+    printf("\n");
+    return sum;
 }
