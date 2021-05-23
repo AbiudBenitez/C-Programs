@@ -132,15 +132,13 @@ void hist(int sale[][4], int sum[])
             aux = i;
         }
     }
-    for(i=0;i<sum[aux]/10;i++)
+    do
     {
-        printf("\t█");
-        for(j=0;j<age;j++)
+        for(i=0;i<aux+1;i++)
         {
-            if(aux==sum[j]-1)
-            {
-
-            }
+            printf("\t");
         }
+        printf("█");
     }
+    while(aux!=0);
 }
